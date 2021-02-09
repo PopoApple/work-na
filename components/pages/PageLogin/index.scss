@@ -1,0 +1,241 @@
+
+// 1、背景部分
+.backgroundLayer {
+  background: linear-gradient(to right, #fff 0%, #fff 75%, #f4f5f6 75%, #f4f5f6 100%);
+  .backgroundImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background: url(~static/img/pc/loginBg.png) no-repeat;
+    background-position: center;
+    background-size:cover;
+  }
+}
+
+.login-container {
+  width: 62vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// 2、左侧概述
+.desc-box {
+  h1 {
+    margin: 136px 0 37px;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 36PX;
+  }
+  .slogan {
+    line-height: 40px;
+    font-size: $fontSizeXL;
+    color: $fontColorXLight;
+  }
+  .desc-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    li {
+      padding-right: 0 5px 0 8px;
+      &:not(:last-child)::after {
+          font-size: 14px;
+          content: '丨';
+          margin: 0 6px;
+          color: #999;
+      }
+      a {
+        color: $fontColorXLight;
+        &:hover {
+          color: $colorGreen;
+        }
+      }
+    }
+  }
+}
+
+// 3、右侧表单
+.login-form-box {
+  position: relative;
+  box-sizing:border-box;
+  width: 400px;
+  height: 500px;
+  padding: 37px 40px;
+  background: #ffffff;
+  border: 1px solid #DADADA;
+  border-radius: $borderRadius;
+  box-shadow: $shadow;
+  min-height: 430PX;
+
+  h3 {
+    margin-bottom: 26px;
+    text-align: center;
+    font-size: $fontSize2XL;
+    font-weight: bold;
+  }
+
+  .login-form {
+    font-size: 16PX;
+    & /deep/ {
+      // 必须用deep才能操作elementui的组件
+      .el-form-item:nth-child(5) {
+        margin-bottom: 0px;
+      }
+      .el-input-group__prepend {
+        padding: 0 10px;
+        font-size: $fontSize2XL;
+      }
+      .el-form-item__error {
+        left: 47PX;
+      }
+      .el-input-group__append {
+        padding: 0;
+        text-align: center;
+        color: $colorGreen;
+        background: #fff;
+        width: 90PX;
+        position: relative;
+      }
+    }
+    .forget {
+      text-align: right;
+      a {
+        color: $fontColorXLight;
+        &:hover {
+          color: $colorGreen;
+        }
+      }
+    }
+  }
+  
+  .codeImg{
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    border-top-right-radius: $borderRadius;
+    border-bottom-right-radius: $borderRadius;
+    width: 100%;
+    height: 100%;
+  }
+
+  .login-btn {
+    cursor: pointer;
+    display: block;
+    width: 318px;
+    height: 46px;
+    margin: 0 auto ;
+    border: 1px solid $colorGreen;
+    border-radius: $borderRadiusS;
+    background: $colorGreen;
+    font-size: 18PX;
+    color: #ffffff;
+    &:hover {
+      border-color:#ababaf;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,.01), inset 0 0 0 100px rgba(0,0,0,.05);
+    }
+  }
+  .tip {
+    margin-top: 20px;
+    text-align: center;
+    color: $fontColorXLight;
+  }
+  .change-login-type {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+    font-size: $fontSizeL;
+    color: $colorGreen;
+    background-color:  #f7f7f7;;
+    box-shadow: $shadow;
+    opacity: 0.5;
+    // 添加文字不可被选中
+    -moz-user-select:none;		/* 火狐 */
+    -webkit-user-select:none;	/* 谷歌 */
+    -ms-user-select:none;		/* IE */
+    user-select:none;
+
+    span, i {
+      cursor: pointer;
+    }
+  }
+}
+
+
+// 用于changeLoginType()切换登录方式使用,手机号登录或是账号登录
+.hide {
+  display: none;
+}
+
+.RootNotMobile {
+  .backgroundLayer {
+    min-width: 768PX;
+  }
+  .login-container {
+    min-width: 477PX;
+  }
+  .formItem-verification {
+    margin-bottom: 48px;
+  }
+  .codeImg{
+    height: 38px;
+    width: 90px;
+  }
+}
+
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+// 移动端适配
+.RootIsMobile {
+  .backgroundLayer {
+    background: none;
+  }
+  .login-container {
+    width: auto
+  }
+  .desc-box {
+    display: none;
+  }
+  .login-form-box {
+    width: auto;
+    height: calc(100vw/0.75);;
+  }
+  .login-btn {
+    width: 636px;
+    height: 92px;
+  } 
+  .change-login-type {
+    height: 160px;
+    line-height: 80px;
+    flex-direction: column;
+    .nuxt-link-active {
+      color: $colorGreen;
+    }
+    // div {
+    //   border-bottom: 1px solid  $colorGreen;
+    // }
+  }
+  .formItem-verification {
+    margin-bottom: 72px;
+  }
+  .codeImg{
+    height: 70px;
+    width: 180px;
+  }
+}

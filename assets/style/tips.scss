@@ -1,0 +1,140 @@
+/* ------------  轻提示（toast）----------------- */
+.RootNotMobile {
+  .el-message--success {
+    background-color: $bgColorGreen;
+    border-color: $borderColorGreen;
+  }
+  .el-message--success .el-message__content {
+    color: $colorGreen;
+  }
+  .el-message .el-icon-success {
+    color: $colorGreen;
+  }
+}
+
+.RootIsMobile {
+  .van-toast {
+    width: 196px;
+    min-height: 196px;
+    font-size: 14PX;
+    line-height: 16PX;
+    .van-toast__icon {
+      font-size: 36PX;
+    }
+  }
+}
+/* ------------  警告框（alert）、确认框（confirm）----------------- */
+.RootNotMobile, .RootIsMobile {
+    
+  .el-message-box {
+    padding-bottom: 10PX;
+    border-radius: 6PX;
+    width: 350PX;
+  }
+
+  .el-message-box__header {
+    padding: 0 20PX;
+    border-bottom: 1px solid $borderColorLight;
+    height: 50PX;
+    line-height: 50PX;
+  }
+
+  .el-message-box__title {
+    font-size: $fontSize2XL;
+    color: $fontColorDark;
+    line-height: 50PX;
+  }
+
+  .el-message-box__headerbtn {
+    font-size: 18PX;
+    top: 0;
+    right: 18PX;
+  }
+
+  .el-message-box__content {
+    font-size: $fontSizeL;
+    padding: 40PX 20PX;
+  }
+
+  .el-message-box__message p {
+    line-height: 24PX;
+  }
+
+  .el-message-box__status {
+    font-size: 24PX !important;
+  }
+
+  .el-message-box__status+.el-message-box__message {
+    padding-left: 36PX;
+    padding-right: 12PX;
+  }
+
+  .el-message-box__btns {
+    overflow: hidden;
+    text-align: center;
+    padding: 0 20PX 15PX;
+    .el-button--small {
+      font-size: $fontSize;
+      border-radius: 4PX;
+      min-width: 130PX;
+      padding: 0;
+      height: 36PX;
+      line-height: 36PX;
+    }
+  }
+  .el-message-box__btns button:nth-child(2) {
+    margin-left: 0;
+  }
+  
+  .Confirm {
+    .el-message-box__btns {
+      .el-button--small {
+        float: right;
+        margin-right: 5PX;
+        &.el-button--primary {
+          float: left;
+          margin-right: 0;
+          margin-left: 8PX;
+        }
+      }
+    }
+  }
+
+}
+
+.RootNotMobile {
+  .el-message-box__wrapper {
+    min-width: 768PX;
+  }
+}
+
+.RootIsMobile {
+  .el-message-box {
+    width: 650px;
+  }
+  .el-message-box__content {
+    padding: 60px 30px;
+  }
+  .el-message-box__btns {
+    .el-button--small {
+      min-width: 260px;
+      padding: 0;
+      height: 72px;
+      line-height: 72px;
+    }
+  }
+  .el-message-box__btns button:nth-child(2) {
+    margin-left: 48px;
+  }
+
+  .Confirm {
+    .el-message-box__btns {
+      .el-button--small {
+        margin-right: 4px;
+        &.el-button--primary {
+          margin-left: 4px;
+        }
+      }
+    }
+  }
+}

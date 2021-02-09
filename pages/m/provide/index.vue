@@ -1,0 +1,3 @@
+<template>
+  <PageProvideIndex />
+</template>
